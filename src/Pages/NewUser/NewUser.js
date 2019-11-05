@@ -57,7 +57,7 @@ const NewUser = () => {
       <Navbar />
       <div className="new-user d-flex align-items-center justify-center">
         <form className="text-center form-login mx-auto mt-5 d-flex align-items-center flex-column">
-          <h1 className="h3 mb-3 text-white"> Novo usuário </h1>
+          <h1 className="h3 mb-4 text-white"> Novo usuário </h1>
           <input
             type="email"
             className="form-control my-2"

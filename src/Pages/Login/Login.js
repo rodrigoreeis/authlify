@@ -6,7 +6,6 @@ import './styles.css';
 
 import firebase from '../../configs/firebase';
 import 'firebase/auth';
-import Navbar from '../../components/Navbar';
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -24,14 +23,11 @@ const Login = () => {
 
   return (
     <>
-      <Navbar />
       <div className="login-container d-flex align-items-center">
         <form className="form-signin form-login mx-auto d-flex align-items-center flex-column">
-          <div className="text-center mb-4">
-            <h1 className="h3 mb-3 font-weight-normal text-white font-weight-bold">
-              Login
-            </h1>
-          </div>
+          <h1 className="h3 mb-4 font-weight-normal text-white font-weight-bold">
+            Login
+          </h1>
 
           <input
             type="email"
