@@ -1,9 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
 import './styles.css';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch({
+      type: 'LOG_OUT',
+    });
+  };
+
   return (
     <nav className="navbar navbar-expand-lg">
       <span className="navbar-brand text-white font-weight-bold">
@@ -31,16 +40,44 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/login">
-              Login
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/novo-usuario">
-              Cadastra-se
-            </Link>
-          </li>
+          {useSelector(state =>
+            !state.userLogged === true ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/novo-usuario">
+                    Cadastra-se
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/novo-evento">
+                    Publicar Eventos
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/meus-eventos">
+                    Meus Eventos
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/"
+                    className="nav-link"
+                    onClick={handleLogout}
+                  >
+                    Sair
+                  </Link>
+                </li>
+              </>
+            ),
+          )}
         </ul>
       </div>
     </nav>

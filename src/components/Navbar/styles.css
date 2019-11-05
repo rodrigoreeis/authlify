@@ -9,7 +9,7 @@
 
 .nav-item > a {
   color: #ffff;
-  transition: all .3s linear;
+  transition: all .1s linear;
 }
 
 .nav-item > a:hover{
