@@ -12,14 +12,17 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [message, setMessage] = useState();
+  const [messageLoading, setMessageLoading] = useState('Login');
 
   const handleLogin = ev => {
     ev.preventDefault();
+    setMessageLoading('Carregando...');
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         setMessage(true);
+        setMessageLoading('Login');
         setTimeout(() => {
           dispatch({
             type: 'LOG_IN',
@@ -27,7 +30,10 @@ const Login = () => {
           });
         }, 2000);
       })
-      .catch(() => setMessage(false));
+      .catch(() => {
+        setMessageLoading('Login');
+        setMessage(false);
+      });
   };
 
   return (
@@ -62,7 +68,7 @@ const Login = () => {
           type="submit"
           onClick={handleLogin}
         >
-          Login
+          {messageLoading}
         </button>
 
         <div className="options-login mt-3 d-flex flex-column">
