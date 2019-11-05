@@ -1,9 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
+import firebase from '../../configs/firebase';
+import 'firebase/auth';
+
 const Login = () => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [message, setMessage] = useState();
+
+  const handleLogin = ev => {
+    ev.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => setMessage(true))
+      .catch(() => setMessage(false));
+  };
+
   return (
     <div className="login-container d-flex align-items-center">
       <form className="form-signin mx-auto">
@@ -25,6 +41,7 @@ const Login = () => {
           id="inputEmail"
           className="form-control my-2"
           placeholder="Seu email"
+          onChange={e => setEmail(e.target.value)}
           required
         />
         <input
@@ -32,24 +49,30 @@ const Login = () => {
           id="inputPassword"
           className="form-control my-2"
           placeholder="Senha"
+          onChange={e => setPassword(e.target.value)}
           required
         />
 
         <button
           className="btn btn-lg btn-block button-login"
           type="submit"
+          onClick={handleLogin}
         >
           Login
         </button>
-        <div className="message-login text-white text-center my-5 d-flex flex-column">
-          <span>
-            <strong>Wow! </strong>
-            Voce está logado ! &#128578;
-          </span>
-          <span>
-            <strong>Ops! </strong>
-            Senha ou usuário incorreto! &#128531;
-          </span>
+        <div className="message-login text-white text-center my-5">
+          {message === true && (
+            <span>
+              <strong>Wow! </strong>
+              Voce está logado ! &#128578;
+            </span>
+          )}
+          {message === false && (
+            <span>
+              <strong>Ops! </strong>
+              Senha ou usuário incorreto! &#128531;
+            </span>
+          )}
         </div>
 
         <div className="options-login mt-3 d-flex flex-column">
