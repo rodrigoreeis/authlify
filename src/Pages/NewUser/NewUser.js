@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 import firebase from '../../configs/firebase';
 import 'firebase/auth';
@@ -8,9 +10,11 @@ const NewUser = () => {
   const [password, setPassword] = useState();
   const [messageType, setMessageType] = useState();
   const [message, setMessage] = useState();
+  const [messageLoading, setMessageLoading] = useState('Cadastre-se');
 
   const handleRegistry = () => {
     setMessageType(null);
+    setMessageLoading('Carregando...');
     if (!email || !password) {
       setMessageType(false);
       setMessage(
@@ -26,6 +30,7 @@ const NewUser = () => {
       })
       .catch(error => {
         setMessageType(false);
+        setMessageLoading('Cadastre-se');
         switch (error.message) {
           case 'Password should be at least 6 characters':
             setMessage('A senha deve ter pelo\nmenos 6 caracteres!');
@@ -49,7 +54,7 @@ const NewUser = () => {
 
   return (
     <div className="new-user d-flex align-items-center justify-center">
-      <form className="text-center form-login mx-auto mt-5 ">
+      <form className="text-center form-login mx-auto mt-5 d-flex align-items-center flex-column">
         <h1 className="h3 mb-3 text-white"> Novo usuário </h1>
         <input
           type="email"
@@ -65,13 +70,20 @@ const NewUser = () => {
         />
         <button
           type="button"
-          className="btn btn-lg btn-block mt-3 mb-5 button-register"
+          className="btn btn-lg btn-block button-register"
           onClick={handleRegistry}
         >
-          Cadastra-se
+          {messageLoading}
         </button>
-
-        <div className="message-register text-white text-center my-5">
+        <div className="options-login d-flex flex-column mt-3">
+          <a href="#" className="mx-2 text-center">
+            Recuperar Senha
+          </a>
+          <Link to="/" className="mx-2 text-center">
+            Login
+          </Link>
+        </div>
+        <div className="message-register text-white text-center mt-3">
           {messageType === true && (
             <span>
               <strong>Wow! </strong>

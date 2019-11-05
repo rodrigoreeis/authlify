@@ -4,7 +4,8 @@
 }
 
 .form-login{
-  min-width: 305px;
+  min-width: 315px;
+  height: 50vh;
 }
 
 .button-register{
@@ -12,7 +13,12 @@
   color: #fff;
 }
 .button-register:hover{
-  background-color: #f21667;
+  background-color: #fff;
+  color: #614ea6;
+}
+.button-register.-inactive{
+  cursor: not-allowed;
+  opacity: 0.9;
 }
 
 .message-register {

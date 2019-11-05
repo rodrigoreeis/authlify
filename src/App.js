@@ -1,14 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Login from './pages/Login';
 import NewUser from './pages/NewUser';
 
 const App = () => (
-  <Router>
+  <BrowserRouter>
     <Route exact path="/" component={Login} />
-    <Route path="novo-usario" component={NewUser} />
-  </Router>
+    <Route exact path="/novo-usuario" component={NewUser} />
+  </BrowserRouter>
 );
 
 export default App;

@@ -4,16 +4,20 @@
   margin: auto;
   background-color: #614ea6;
   height: 100vh;
-}
 
+}
+.form-login{
+  min-width: 315px;
+  height: 50vh;
+}
 .button-login{
-  background-color: #fff;
-  color: #614ea6;
+  background-color: #f21667;
+  color: #fff;
 }
 
 .button-login:hover{
-  background-color: #f21667;
-  color: #fff;
+  background-color: #fff;
+  color: #614ea6;
 }
 
 .options-login > a{

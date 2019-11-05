@@ -23,15 +23,8 @@ const Login = () => {
 
   return (
     <div className="login-container d-flex align-items-center">
-      <form className="form-signin mx-auto">
+      <form className="form-signin form-login mx-auto d-flex align-items-center flex-column">
         <div className="text-center mb-4">
-          <img
-            className="mb-4"
-            src="#"
-            alt=""
-            width="72"
-            height="72"
-          />
           <h1 className="h3 mb-3 font-weight-normal text-white font-weight-bold">
             Login
           </h1>
@@ -61,7 +54,16 @@ const Login = () => {
         >
           Login
         </button>
-        <div className="message-login text-white text-center my-5">
+
+        <div className="options-login mt-3 d-flex flex-column">
+          <a href="#" className="mx-2 text-center">
+            Recuperar Senha
+          </a>
+          <Link to="/novo-usuario" className="mx-2 text-center">
+            Cadastre-se
+          </Link>
+        </div>
+        <div className="message-login text-white text-center mt-3">
           {message === true && (
             <span>
               <strong>Wow! </strong>
@@ -74,15 +76,6 @@ const Login = () => {
               Senha ou usuário incorreto! &#128531;
             </span>
           )}
-        </div>
-
-        <div className="options-login mt-3 d-flex flex-column">
-          <a href="#" className="mx-2 text-center">
-            Recuperar Senha
-          </a>
-          <Link to="novo-usario" className="mx-2 text-center">
-            Cadastre-se
-          </Link>
         </div>
       </form>
     </div>
