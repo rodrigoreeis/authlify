@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './styles.css';
 import firebase from '../../configs/firebase';
 import 'firebase/auth';
+import Navbar from '../../components/Navbar';
 
 const NewUser = () => {
   const [email, setEmail] = useState();
@@ -53,52 +53,47 @@ const NewUser = () => {
   };
 
   return (
-    <div className="new-user d-flex align-items-center justify-center">
-      <form className="text-center form-login mx-auto mt-5 d-flex align-items-center flex-column">
-        <h1 className="h3 mb-3 text-white"> Novo usuário </h1>
-        <input
-          type="email"
-          className="form-control my-2"
-          placeholder="Email"
-          onChange={e => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          className="form-control my-2"
-          placeholder="Senha"
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button
-          type="button"
-          className="btn btn-lg btn-block button-register"
-          onClick={handleRegistry}
-        >
-          {messageLoading}
-        </button>
-        <div className="options-login d-flex flex-column mt-3">
-          <a href="#" className="mx-2 text-center">
-            Recuperar Senha
-          </a>
-          <Link to="/" className="mx-2 text-center">
-            Login
-          </Link>
-        </div>
-        <div className="message-register text-white text-center mt-3">
-          {messageType === true && (
-            <span>
-              <strong>Wow! </strong>
-              Usuário cadastrado com sucesso! &#128512;
-            </span>
-          )}
-          {messageType === false && (
-            <span>
-              <strong>Ops! </strong>
-              {message}
-            </span>
-          )}
-        </div>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="new-user d-flex align-items-center justify-center">
+        <form className="text-center form-login mx-auto mt-5 d-flex align-items-center flex-column">
+          <h1 className="h3 mb-3 text-white"> Novo usuário </h1>
+          <input
+            type="email"
+            className="form-control my-2"
+            placeholder="Email"
+            onChange={e => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            className="form-control my-2"
+            placeholder="Senha"
+            onChange={e => setPassword(e.target.value)}
+          />
+          <button
+            type="button"
+            className="btn btn-lg btn-block button-register"
+            onClick={handleRegistry}
+          >
+            {messageLoading}
+          </button>
+          <div className="message-register text-white text-center mt-3">
+            {messageType === true && (
+              <span>
+                <strong>Wow! </strong>
+                Usuário cadastrado com sucesso! &#128512;
+              </span>
+            )}
+            {messageType === false && (
+              <span>
+                <strong>Ops! </strong>
+                {message}
+              </span>
+            )}
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

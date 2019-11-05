@@ -1,0 +1,17 @@
+.navbar{
+  background-color: #614ea6;
+  border: 1px solid #564888;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+}
+
+.nav-item > a {
+  color: #ffff;
+  transition: all .3s linear;
+}
+
+.nav-item > a:hover{
+  color: #f21667;
+}
