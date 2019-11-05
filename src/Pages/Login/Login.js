@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 import firebase from '../../configs/firebase';
@@ -79,9 +80,9 @@ const Login = () => {
           <a href="#" className="mx-2 text-center">
             Recuperar Senha
           </a>
-          <a href="#" className="mx-2 text-center">
+          <Link to="novo-usario" className="mx-2 text-center">
             Cadastre-se
-          </a>
+          </Link>
         </div>
       </form>
     </div>

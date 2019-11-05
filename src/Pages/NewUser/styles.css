@@ -1,0 +1,20 @@
+.new-user{
+  height: 100vh;
+  background-color: #614ea6;
+}
+
+.form-login{
+  min-width: 305px;
+}
+
+.button-register{
+  background-color: #f21667;
+  color: #fff;
+}
+.button-register:hover{
+  background-color: #f21667;
+}
+
+.message-register {
+  white-space: pre-line;
+}

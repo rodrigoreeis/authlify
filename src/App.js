@@ -7,7 +7,7 @@ import NewUser from './pages/NewUser';
 const App = () => (
   <Router>
     <Route exact path="/" component={Login} />
-    <Route exact path="novo-usario" component={NewUser} />
+    <Route path="novo-usario" component={NewUser} />
   </Router>
 );
 
