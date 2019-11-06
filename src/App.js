@@ -6,6 +6,7 @@ import store from './store';
 import Login from './pages/Login';
 import NewUser from './pages/NewUser';
 import Home from './pages/Home';
+import RecoveryPassword from './pages/RecoverPassword';
 
 const App = () => (
   <Provider store={store}>
@@ -13,6 +14,11 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/novo-usuario" component={NewUser} />
+      <Route
+        exact
+        path="/recuperar-senha"
+        component={RecoveryPassword}
+      />
     </BrowserRouter>
   </Provider>
 );

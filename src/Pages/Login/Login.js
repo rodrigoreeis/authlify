@@ -72,9 +72,9 @@ const Login = () => {
         </button>
 
         <div className="options-login mt-3 d-flex flex-column">
-          <a href="#" className="mx-2 text-center">
+          <Link to="/recuperar-senha" className="mx-2 text-center">
             Recuperar Senha
-          </a>
+          </Link>
           <Link to="/novo-usuario" className="mx-2 text-center">
             Cadastre-se
           </Link>

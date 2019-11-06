@@ -1,0 +1,17 @@
+.recovery-password{
+  height: 100vh;
+}
+
+.button-send{
+  background-color: #f21667;
+  color: #fff;
+}
+
+.button-send:hover{
+  background-color: #614ea6;
+  color: #fff;
+}
+
+.message-form{
+  white-space: pre-line;
+}
