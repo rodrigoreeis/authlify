@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import NewUser from './pages/NewUser';
 import Home from './pages/Home';
 import RecoveryPassword from './pages/RecoverPassword';
+import EventRegistration from './pages/EventRegistration';
 
 const App = () => (
   <Provider store={store}>
@@ -18,6 +19,11 @@ const App = () => (
         exact
         path="/recuperar-senha"
         component={RecoveryPassword}
+      />
+      <Route
+        exact
+        path="/registrar-evento"
+        component={EventRegistration}
       />
     </BrowserRouter>
   </Provider>

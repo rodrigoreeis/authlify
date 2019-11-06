@@ -16,24 +16,27 @@ const Login = () => {
 
   const handleLogin = ev => {
     ev.preventDefault();
-    setMessageLoading('Carregando...');
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        setMessage(true);
-        setMessageLoading('Login');
-        setTimeout(() => {
-          dispatch({
-            type: 'LOG_IN',
-            userEmail: email,
-          });
-        }, 1000);
-      })
-      .catch(() => {
-        setMessageLoading('Login');
-        setMessage(false);
-      });
+    if (email && password) {
+      console.log('vazio');
+      setMessageLoading('Carregando...');
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          setMessage(true);
+          setMessageLoading('Login');
+          setTimeout(() => {
+            dispatch({
+              type: 'LOG_IN',
+              userEmail: email,
+            });
+          }, 1000);
+        })
+        .catch(() => {
+          setMessageLoading('Login');
+          setMessage(false);
+        });
+    }
   };
 
   return (
