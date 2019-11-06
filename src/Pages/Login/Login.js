@@ -28,7 +28,7 @@ const Login = () => {
             type: 'LOG_IN',
             userEmail: email,
           });
-        }, 2000);
+        }, 1000);
       })
       .catch(() => {
         setMessageLoading('Login');

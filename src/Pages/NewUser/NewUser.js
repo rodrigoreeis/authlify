@@ -30,7 +30,7 @@ const NewUser = () => {
       .then(() => {
         setTimeout(() => {
           setSucess(true);
-        }, 2000);
+        }, 1000);
         setMessageType(true);
         setMessage('Cadastro realizado com sucesso! ');
         setMessageLoading('Cadastre-se');
