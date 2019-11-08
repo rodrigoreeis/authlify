@@ -13,7 +13,7 @@
 
 
 #keyFirebase
-/src/configs
+/src/configs/
 
 # misc
 .DS_Store
