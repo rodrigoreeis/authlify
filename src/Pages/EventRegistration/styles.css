@@ -1,4 +1,17 @@
+.container-event{
+  display: flex;
+  flex-direction: column;
+}
+
 .form-event{
   width: 100%;
   max-width: 85%;
+}
+
+.message-login{
+  margin: 0 auto;
+}
+
+.message-login > span{
+  color: black;
 }

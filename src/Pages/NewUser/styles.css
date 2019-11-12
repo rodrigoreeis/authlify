@@ -12,9 +12,11 @@
   background-color: #f21667;
   color: #fff;
 }
-.button-register:hover{
-  background-color: #fff;
-  color: #614ea6;
+@media(min-width: 1024px){
+  .button-register:hover{
+    background-color: #fff;
+    color: #614ea6;
+  }
 }
 .button-register.-inactive{
   cursor: not-allowed;
