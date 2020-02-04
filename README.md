@@ -1,4 +1,4 @@
-# Firebase React;
+# Firebase React
 
 Application developed with react and firebase with login authentication to register events on the platform.
 
